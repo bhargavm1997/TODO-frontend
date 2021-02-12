@@ -53,9 +53,28 @@ return this.http.get(this.url + "/singleView?id=" + data)
 
   count()
   {
-    return this.http.get()
+   // return this.http.get()
   }
 
+  
+
+
+  update(data)
+  {
+return this.http.put(this.url + "/update?id=" + data._id,data)
+  }
+
+
+  forgot(data)
+  {
+    return this.http.post(this.url + "/forgot" ,data)
+  }
+
+
+  updatePass(data)
+  {
+    return this.http.put(this.url + "/updatePass", data)
+  }
 
 
 }

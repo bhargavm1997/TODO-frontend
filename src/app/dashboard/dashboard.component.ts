@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { countReset } from 'console';
 import { TodoServiceService } from '../todo-service.service';
 
 @Component({
@@ -13,10 +12,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-this.http.count().subscribe(
+/*this.http.count().subscribe(
   data=>{
     console.log(data["data"])
   })
+  */
 
   }
 

@@ -29,7 +29,8 @@ this.http.login(a).subscribe(
 
     if(data["status"]==200)
     {
-this.http.setUserInfoInLocalStorage(data["data"])
+      console.log(data["data"])
+      this.http.setUserInfoInLocalStorage(data["data"])
      this.route.navigate(["/dashboard"])
     }
   })

@@ -1,0 +1,120 @@
+<app-header></app-header>
+<div class="container-fluid" id="main">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <app-navigation></app-navigation>
+
+
+        <div class="col main pt-5 mt-3">
+           
+
+            <div class= "alert alert-warning fade collapse" role="alert" id="myAlert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong>Holy guacamole!</strong> It's free.. this is an example theme.
+            </div>
+            <div class="row mb-3">
+                   
+
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="todolist not-done">
+                                 <h1>Todos</h1>
+                                 <input type="text" [(ngModel)]="this.b.title" class="form-control add-todo" placeholder="Todo title">
+                                 <br>
+                                
+                                    <textarea  [(ngModel)]="this.b.description" class="form-control add-todo" placeholder="Todo Description"></textarea>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="rolename">Assigned To</label>
+                                        <div class="col-md-12">
+                                            <select  class="selectpicker show-menu-arrow" 
+                                            data-style="form-control" 
+                                            data-live-search="true" 
+                                            title="-- Select your coffee --"
+                                            multiple="multiple">
+                                      <option data-tokens="Espresso">Espresso</option>
+                                      <option data-tokens="Americano">Americano</option>
+                                      <option data-tokens="Mocha">Mocha</option>
+                                      <option data-tokens="Capuccino">Capuccino</option>
+                                      <option data-tokens="Affogato">Affogato</option>
+                                      <option data-tokens="Long Black">Long Black</option>
+                                      <option data-tokens="Macchiato">Macchiato</option>
+                                     
+                                    </select>
+                                        </div>
+                                    
+                                    
+                                    </div>  
+                                    <br>
+                                        <button id="checkAll" (click)="submit()" class="btn btn-success">Submit</button>
+                                      <br>
+                                     
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+               
+             
+               
+            </div>
+            <!--/row-->
+
+            <hr>
+
+
+          
+                 
+
+           
+
+  
+
+        </div>
+        <!--/main col-->
+    </div>
+
+</div>
+<!--/.container-->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
+                Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
+                <p>
+                    <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

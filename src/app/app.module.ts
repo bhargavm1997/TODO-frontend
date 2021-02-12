@@ -16,6 +16,8 @@ import { HeaderComponent } from './dashboard/header/header.component';
 import { NavigationComponent } from './dashboard/navigation/navigation.component';
 import { ListComponent } from './task/list/list.component';
 import { SingleComponentComponent } from './task/single-component/single-component.component';
+import { EditComponent } from './task/edit/edit.component';
+import { ForgotComponent } from './user/forgot/forgot.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { SingleComponentComponent } from './task/single-component/single-compone
     NavigationComponent,
     ListComponent,
     SingleComponentComponent,
+    EditComponent,
+    ForgotComponent,
     
   ],
   imports: [
@@ -38,14 +42,16 @@ import { SingleComponentComponent } from './task/single-component/single-compone
     BrowserModule,
     RouterModule.forRoot([
       {path:"signup",component:SignupComponent},
-      {path:"update",component:UpdateComponent},
+      {path:"forgot",component:ForgotComponent},
       {path:"login",component:UserComponent},
       {path:"",component:UserComponent},
       {path:"*",component:UserComponent},
       {path:"dashboard",component:DashboardComponent},
       {path:"add",component:AddListComponent},
       {path:"list",component:ListComponent},
-      {path:"singleView/:taskId",component:SingleComponentComponent}
+      {path:"singleView/:taskId",component:SingleComponentComponent},
+      {path:"edit/:taskid",component:EditComponent},
+      {path:"updatepassword/:email",component:UpdateComponent}
     ])
 
   ],
