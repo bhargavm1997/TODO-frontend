@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TodoServiceService } from 'src/app/todo-service.service';
 
 @Component({
@@ -13,10 +14,12 @@ export class SignupComponent implements OnInit {
   mobile:any
   email:any
   password:any
-
-  constructor(private http:TodoServiceService, private route:Router) { }
+  countries:any
+  countryCode:any
+  constructor(private http:TodoServiceService, private route:Router, private toaster:ToastrService) { }
 
   ngOnInit(): void {
+    
   }
 
 
@@ -27,14 +30,22 @@ let a={
   lastname:this.lastname,
   mobile:this.mobile,
   email:this.email,
-  password:this.password
+  password:this.password,
+  countryCode:this.countryCode
 }
 
 this.http.signup(a).subscribe(
   data=>{
     if(data["status"]==200)
     {
+      this.toaster.success("Sign Up Successful")
+      setTimeout(() => {
+
+        
       this.route.navigate(["/login"])
+
+      }, 2000);
+
     }
   })
   }

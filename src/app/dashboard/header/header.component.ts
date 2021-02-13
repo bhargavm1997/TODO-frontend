@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoServiceService } from 'src/app/todo-service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+a:any
+  constructor(private http:TodoServiceService) { }
 
   ngOnInit(): void {
+
+    this.a=this.http.getUserInfoFromLocalstorage()
+    console.log(this.a)
+
   }
 
 }

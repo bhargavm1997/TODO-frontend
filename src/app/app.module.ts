@@ -7,6 +7,7 @@ import { SignupComponent } from './user/signup/signup.component';
 import { UpdateComponent } from './user/update/update.component';
 import{RouterModule} from '@angular/router'
 import{HttpClientModule} from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{FormsModule} from '@angular/forms'
 
 import { TodoServiceService } from './todo-service.service';
@@ -18,6 +19,9 @@ import { ListComponent } from './task/list/list.component';
 import { SingleComponentComponent } from './task/single-component/single-component.component';
 import { EditComponent } from './task/edit/edit.component';
 import { ForgotComponent } from './user/forgot/forgot.component';
+import{ToastrModule} from 'ngx-toastr';
+import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component'
+
 
 
 @NgModule({
@@ -27,6 +31,7 @@ import { ForgotComponent } from './user/forgot/forgot.component';
     SignupComponent,
     UpdateComponent,
     DashboardComponent,
+    
     AddListComponent,
     HeaderComponent,
     NavigationComponent,
@@ -34,12 +39,16 @@ import { ForgotComponent } from './user/forgot/forgot.component';
     SingleComponentComponent,
     EditComponent,
     ForgotComponent,
+    EditProfileComponent,
     
   ],
   imports: [
     HttpClientModule,
     FormsModule,
+    
+    ToastrModule.forRoot(),
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {path:"signup",component:SignupComponent},
       {path:"forgot",component:ForgotComponent},
@@ -51,7 +60,8 @@ import { ForgotComponent } from './user/forgot/forgot.component';
       {path:"list",component:ListComponent},
       {path:"singleView/:taskId",component:SingleComponentComponent},
       {path:"edit/:taskid",component:EditComponent},
-      {path:"updatepassword/:email",component:UpdateComponent}
+      {path:"updatepassword/:email",component:UpdateComponent},
+      {path:"editProfile/:id",component:EditProfileComponent}
     ])
 
   ],
