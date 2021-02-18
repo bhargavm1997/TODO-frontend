@@ -1,8 +1,18 @@
 .btn{
-    margin-left: 1100%;
-    background-color: blue;
-    border-color: blue;
+    margin-left: 590%;
+    background-color: #c0392b;
+    border-color: #c0392b
 }
 .dropdown-menu{
-    margin-left: 1000%;
+    margin-left: 580%;
+}
+.header-back{
+    background-color:#c0392b
+}
+.btnSelected{
+    background-color:#c0392b;
+    border-color: #c0392b
+}
+.btn{
+    color:#fff
 }

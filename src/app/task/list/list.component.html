@@ -5,69 +5,48 @@
 
 
         <div class="col main pt-5 mt-3">
-           
-
-            <div class= "alert alert-warning fade collapse" role="alert" id="myAlert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <strong>Holy guacamole!</strong> It's free.. this is an example theme.
-            </div>
             <div class="row mb-3">
-                   
+                <div class="col-sm-8">
+                    <h2>Task List</h2>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info add-new"><i
+                            class="fa fa-plus"></i> Add Task</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Subtask</th>
+                            <th scope="col">Action</th>
 
-<h1>Task List</h1>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let b of this.a">
 
-                   
-<table class="table">
-    <thead>
-      <tr>
-      
-        <th scope="col">Title</th>
-        <th scope="col">Description</th>
-        <th scope="col">Action</th>
-     
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let b of this.a">
-      
-        <td>{{b.title}}</td>
-        <td>{{b.description}}</td>   
-        <td><button  [routerLink]="['/singleView',b._id]"  class="btn btn-primary">View</button> &nbsp; <button [routerLink]="['/edit',b._id]" type="button" class="btn btn-primary">Edit</button>
-            &nbsp;<button type="button" class="btn btn-primary">Delete</button>
-        </td>
-       
-      
-      </tr>
-     
-    </tbody>
-  </table>
+                            <td>{{b.title}}</td>
+                            <td>{{b.description}}</td>
+                            <td>{{b.status}}</td>
+                            <td>{{b.subTask}}</td>
 
+                            <td>
+                                <button [routerLink]="['/singleView',b._id]" class="btn btn-primary">View</button>
+                                &nbsp; <button [routerLink]="['/edit',b._id]" type="button"
+                                    class="btn btn-primary">Edit</button>
+                                &nbsp;<button type="button" (click)="deleteTask(b._id)"
+                                    class="btn btn-primary">Delete</button>
+                            </td>
 
-
-
-
-
-
-
-               
-             
-               
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <!--/row-->
 
             <hr>
-
-
-          
-                 
-
-           
-
-  
-
         </div>
         <!--/main col-->
     </div>
@@ -82,26 +61,40 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Modal</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Task</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                     <span class="sr-only">Close</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
-                Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
-                <p>
-                    <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
-                </p>
+                <input type="text" [(ngModel)]="title" class="form-control add-todo" placeholder="Todo Title">
+                <br>
+                <textarea [(ngModel)]="description" class="form-control add-todo"
+                    placeholder="Todo Description"></textarea>
+                <br>
+                <div class="form-group">
+                    <select class="form-control" [(ngModel)]="status">
+                        <option value="Open">Open</option>
+                        <option value="Done">Done</option>
+
+                    </select>
+                </div>
+                &nbsp;
+                <button (click)="addSubTask()" class="btn btn-primary">Add subtask</button>
+                <div *ngIf="isShown" class="row container-fluid" id="divshow">
+                    <br>
+
+                    <input type="text" [(ngModel)]="subTask" class="form-control add-todo" placeholder="Subtask">
+
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+                <button type="button" (click)="submit()" class="btn btn-primary-outline" data-dismiss="modal">Add
+                    Task</button>
             </div>
         </div>
     </div>
 </div>
-
-
-

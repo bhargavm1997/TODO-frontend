@@ -1,13 +1,7 @@
 <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
     <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
         <li class="nav-item"><a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a></li>
-        <li class="nav-item">
-            <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Tasks▾</a>
-            <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
-               <li class="nav-item"><a class="nav-link" [routerLink]="['/list']">Task List</a></li>
-               <li class="nav-item"><a class="nav-link" [routerLink]="['/add']">Add Task</a></li>
-            </ul>
-        </li>
-                 </ul>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/friends']">Friends</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/list']">Tasks</a></li>
+    </ul>
 </div>
-<!--/col-->

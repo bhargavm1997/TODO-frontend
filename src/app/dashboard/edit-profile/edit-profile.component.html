@@ -29,9 +29,8 @@
                                  <input type="text" [(ngModel)]="this.a.lastname" class="form-control add-todo" placeholder="LastName">
                                  <br>
                                  <div class="input-group mb-3">
-                                 <select name="countryCode" class="form-control countryCode" [(ngModel)]="this.a.countryCode"> 
-                                    <option value="+91" selected>+91</option>
-                                    <option  *ngFor="let a of this.countries" value="a.dial_code">{{a.dial_code}}</option>
+                                 <select  *ngIf="this.countries" name="countryCode" class="form-control countryCode" [(ngModel)]="this.countryCodeSelected"> 
+                                    <option *ngFor="let a of this.countries.countries" [value]="a.dial_code">{{a.dial_code}}</option>
                                       </select>
                                  <input type="number" [(ngModel)]="this.a.mobile" class="form-control mobileInput" placeholder="Mobile.No">
                                 </div>

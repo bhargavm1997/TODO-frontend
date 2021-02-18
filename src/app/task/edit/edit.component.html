@@ -5,53 +5,27 @@
 
 
         <div class="col main pt-5 mt-3">
-           
-
-            <div class= "alert alert-warning fade collapse" role="alert" id="myAlert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <strong>Holy guacamole!</strong> It's free.. this is an example theme.
-            </div>
+        
             <div class="row mb-3">
-                   
-
-
-
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="todolist not-done">
-                                 <h1>Todos</h1>
+                                <div class="todolist not-done" *ngIf="this.b">
+                                 <h2>Edit Task</h2>
                                  <input type="text" [(ngModel)]="this.b.title" class="form-control add-todo" placeholder="Todo title">
                                  <br>
                                 
                                     <textarea  [(ngModel)]="this.b.description" class="form-control add-todo" placeholder="Todo Description"></textarea>
                                     <br>
                                     <div class="form-group">
-                                        <label class="col-md-12 control-label" for="rolename">Assigned To</label>
-                                        <div class="col-md-12">
-                                            <select  class="selectpicker show-menu-arrow" 
-                                            data-style="form-control" 
-                                            data-live-search="true" 
-                                            title="-- Select your coffee --"
-                                            multiple="multiple">
-                                      <option data-tokens="Espresso">Espresso</option>
-                                      <option data-tokens="Americano">Americano</option>
-                                      <option data-tokens="Mocha">Mocha</option>
-                                      <option data-tokens="Capuccino">Capuccino</option>
-                                      <option data-tokens="Affogato">Affogato</option>
-                                      <option data-tokens="Long Black">Long Black</option>
-                                      <option data-tokens="Macchiato">Macchiato</option>
-                                     
-                                    </select>
-                                        </div>
-                                    
-                                    
-                                    </div>  
+                                        <select class="form-control" [(ngModel)]="this.b.status">
+                                          <option value="Open">Open</option>
+                                          <option value="Done">Done</option>
+
+                                        </select>
+                                      </div>
                                     <br>
-                                        <button id="checkAll" (click)="submit()" class="btn btn-success">Submit</button>
+                                        <button id="checkAll" (click)="editTask()" class="btn btn-success">Submit</button>
                                       <br>
                                      
                                     

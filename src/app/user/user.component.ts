@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoServiceService } from '../todo-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user',
@@ -9,31 +10,31 @@ import { TodoServiceService } from '../todo-service.service';
 })
 export class UserComponent implements OnInit {
 
-  username:any
-  password:any
-  constructor(private http:TodoServiceService, private route:Router) { }
+  username: any
+  password: any
+  constructor(private http: TodoServiceService, private route: Router,private toastr: ToastrService ) { }
 
   ngOnInit(): void {
   }
 
 
-  login()
-  {
-let a={
-  email:this.username,
-  password:this.password
-}
-this.http.login(a).subscribe(
-  data=>{
-      console.log(data)
-
-    if(data["status"]==200)
-    {
-      console.log(data["data"])
-      this.http.setUserInfoInLocalStorage(data["data"])
-     this.route.navigate(["/dashboard"])
+  login() {
+    let a = {
+      email: this.username,
+      password: this.password
     }
-  })
+    this.http.login(a).subscribe(
+      data => {
+        if (data["status"] == 200) {
+          this.http.setUserInfoInLocalStorage(data["data"])
+          this.route.navigate(["/dashboard"])
+        }
+        else
+        {
+          this.toastr.error("Some error occured")
+
+        }
+      })
 
   }
 }

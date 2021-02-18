@@ -12,7 +12,6 @@ import{FormsModule} from '@angular/forms'
 
 import { TodoServiceService } from './todo-service.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddListComponent } from './task/add-list/add-list.component';
 import { HeaderComponent } from './dashboard/header/header.component';
 import { NavigationComponent } from './dashboard/navigation/navigation.component';
 import { ListComponent } from './task/list/list.component';
@@ -20,7 +19,10 @@ import { SingleComponentComponent } from './task/single-component/single-compone
 import { EditComponent } from './task/edit/edit.component';
 import { ForgotComponent } from './user/forgot/forgot.component';
 import{ToastrModule} from 'ngx-toastr';
-import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component'
+import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component';
+import { FriendsComponent } from './friends/friends.component';
+import { Error404Component } from './error/error404/error404.component';
+import { Error500Component } from './error/error500/error500.component'
 
 
 
@@ -31,8 +33,6 @@ import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.comp
     SignupComponent,
     UpdateComponent,
     DashboardComponent,
-    
-    AddListComponent,
     HeaderComponent,
     NavigationComponent,
     ListComponent,
@@ -40,6 +40,9 @@ import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.comp
     EditComponent,
     ForgotComponent,
     EditProfileComponent,
+    FriendsComponent,
+    Error404Component,
+    Error500Component
     
   ],
   imports: [
@@ -56,12 +59,20 @@ import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.comp
       {path:"",component:UserComponent},
       {path:"*",component:UserComponent},
       {path:"dashboard",component:DashboardComponent},
-      {path:"add",component:AddListComponent},
       {path:"list",component:ListComponent},
       {path:"singleView/:taskId",component:SingleComponentComponent},
       {path:"edit/:taskid",component:EditComponent},
       {path:"updatepassword/:email",component:UpdateComponent},
-      {path:"editProfile/:id",component:EditProfileComponent}
+      {path:"editProfile/:id",component:EditProfileComponent},
+      {path:"friends",component:FriendsComponent},
+      {path:"error/404",component:Error404Component},
+      {path:"error/500",component:Error500Component},
+      {
+        path: "**",
+        pathMatch   : 'full',
+        component: Error404Component
+     },
+
     ])
 
   ],

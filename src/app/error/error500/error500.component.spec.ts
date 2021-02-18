@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddListComponent } from './add-list.component';
+import { Error500Component } from './error500.component';
 
-describe('AddListComponent', () => {
-  let component: AddListComponent;
-  let fixture: ComponentFixture<AddListComponent>;
+describe('Error500Component', () => {
+  let component: Error500Component;
+  let fixture: ComponentFixture<Error500Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddListComponent ]
+      declarations: [ Error500Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddListComponent);
+    fixture = TestBed.createComponent(Error500Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

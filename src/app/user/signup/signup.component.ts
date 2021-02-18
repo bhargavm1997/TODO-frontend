@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TodoServiceService } from 'src/app/todo-service.service';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +17,13 @@ export class SignupComponent implements OnInit {
   password:any
   countries:any
   countryCode:any
-  constructor(private http:TodoServiceService, private route:Router, private toaster:ToastrService) { }
+  countryCodeSelected="+91"
+  constructor(private httpClient: HttpClient,private http:TodoServiceService, private route:Router, private toaster:ToastrService) { }
 
   ngOnInit(): void {
-    
+    this.httpClient.get("../../assets/countries.json").subscribe(data =>{
+      this.countries = data;
+    })
   }
 
 
@@ -31,7 +35,7 @@ let a={
   mobile:this.mobile,
   email:this.email,
   password:this.password,
-  countryCode:this.countryCode
+  countryCode:this.countryCodeSelected
 }
 
 this.http.signup(a).subscribe(

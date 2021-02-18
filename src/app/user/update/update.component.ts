@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TodoServiceService } from 'src/app/todo-service.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update',
@@ -10,7 +12,7 @@ import { TodoServiceService } from 'src/app/todo-service.service';
 export class UpdateComponent implements OnInit {
 a:any
 pass:any
-  constructor(private router:ActivatedRoute, private http:TodoServiceService) { }
+  constructor(private router:ActivatedRoute, private http:TodoServiceService,private route:Router, private toaster:ToastrService) { }
 
   ngOnInit(): void {
     this.a=this.router.snapshot.paramMap.get("email")
@@ -25,7 +27,16 @@ pass:any
     }
 this.http.updatePass(data).subscribe(
   data=>{
-    console.log(data["data"])
-  })
+    if(data["status"]==200)
+    {
+    this.toaster.success("Password updated successfully")
+      setTimeout(() => {
+
+        
+      this.route.navigate(["/login"])
+
+      }, 2000);
+  }
+});
   }
 }
