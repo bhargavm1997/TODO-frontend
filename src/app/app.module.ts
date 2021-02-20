@@ -23,6 +23,7 @@ import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.comp
 import { FriendsComponent } from './friends/friends.component';
 import { Error404Component } from './error/error404/error404.component';
 import { Error500Component } from './error/error500/error500.component'
+import {  PushNotificationsServiceService  } from './push-notifications-service.service';  
 
 
 
@@ -72,12 +73,11 @@ import { Error500Component } from './error/error500/error500.component'
         pathMatch   : 'full',
         component: Error404Component
      },
-
     ])
-
   ],
   providers: [
-    TodoServiceService
+    TodoServiceService,
+    PushNotificationsServiceService
   ],
   bootstrap: [AppComponent]
 })

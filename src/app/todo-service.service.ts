@@ -36,11 +36,18 @@ export class TodoServiceService {
     return JSON.parse(localStorage.getItem('userInfo'));
 
   }
+  getTodo(id,friendArray) {
+    return this.http.get(this.url + "/getTodo?id="+id+"&&friends="+friendArray)
+  }
+  userDetailsByEmail(email)
+  {
+    return this.http.get(this.url + "/userDetailsByEmail?email="+email)
 
+  }
+  userDetailsById(id)
+  {
+    return this.http.get(this.url + "/userDetailsById?id="+id)
 
-
-  getTodo() {
-    return this.http.get(this.url + "/getTodo")
   }
   singleView(data) {
     return this.http.get(this.url + "/singleView?id=" + data)
@@ -48,20 +55,31 @@ export class TodoServiceService {
   friendList(userId) {
     return this.http.get(this.url + "/friendList?id=" + userId)
   }
-
-
-  count() {
-    // return this.http.get()
+   count(id) {
+     return this.http.get(this.url + "/taskCount?id=" +id)
   }
+  friendCount(id) {
+    return this.http.get(this.url + "/friendCount?id=" +id)
+ }
 
-  deleteTask(taskId) {
-    return this.http.delete(this.url + "/deleteTask?id=" + taskId)
+ deleteTask(taskId,loggedIn) {
+    console.log(loggedIn)
+    return this.http.delete(this.url + "/deleteTask?id=" + taskId+"&&_id="+loggedIn)
+
+  }
+  taskHistory(taskId) {
+    return this.http.get(this.url + "/getTaskHistory?id="+taskId)
 
   }
   updateProfile(data) {
     return this.http.put(this.url + "/updateProfile?id=" + data._id, data)
   }
-
+  undoTaskHistory(taskHistoryId) {
+    return this.http.delete(this.url + "/undoTaskHistory?id=" + taskHistoryId)
+  }
+  getNotification(id) {
+    return this.http.get(this.url + "/getNotification?id=" + id)
+  }
   update(data) {
     return this.http.put(this.url + "/update?id=" + data._id, data)
   }

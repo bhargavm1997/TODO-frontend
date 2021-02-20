@@ -2,80 +2,59 @@
 <div class="container-fluid" id="main">
     <div class="row row-offcanvas row-offcanvas-left">
         <app-navigation></app-navigation>
-
-
         <div class="col main pt-5 mt-3">
-           
+            <div class="row mb-3">
+                <div class="col-sm-8">
+                    <h2>Task Detail</h2>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Subtask</th>
 
-            <div class= "alert alert-warning fade collapse" role="alert" id="myAlert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <strong>Holy guacamole!</strong> It's free.. this is an example theme.
-            </div>
-         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="this.b">
+                            <td>{{this.b.title}}</td>
+                            <td>{{this.b.description}}</td>
+                            <td>{{this.b.status}}</td>
+                            <td>{{this.b.subTask}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-sm-8">
+                    <h2>Task History</h2>
 
-            
-<div class="card" style="width: 18rem">
-    <img
-      src="https://mdbootstrap.com/img/new/standard/city/062.jpg"
-      class="card-img-top"
-      alt="..."
-    />
+                </div>
+                <div class="col-sm-3" >
+                    <button (click)="undoTaskHistory(this.taskId)" class="btn btn-primary">Undo</button>
 
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Action</th>
+                            <th scope="col">Done By</th>
 
-<div class="card-body">
-    <h5 class="card-title">{{this.b.title}}</h5>
-    <p class="card-text">
-    {{this.b.description}}
-    </p>
-  </div>
-  <a [routerLink]="['/list']" class="card-link">Back to Task List</a>
-           
-
+                        </tr>
+                    </thead>
+                    <tbody  *ngIf="this.taskHistory">
+                        <tr *ngFor="let history of this.taskHistory">
+                            <td>{{history.action}}</td>
+                            <td>{{history.updatedBy}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                </div>
+          </div>
+          </div>
           
-                 
-
-           
-
-  
-
-        </div>
-        <!--/main col-->
-    </div>
-
-</div>
-<!--/.container-->
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Modal</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
-                Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
-                <p>
-                    <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+          
 
 
 

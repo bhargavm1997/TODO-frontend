@@ -27,16 +27,16 @@
                     <tbody>
                         <tr *ngFor="let b of this.a">
 
-                            <td>{{b.title}}</td>
-                            <td>{{b.description}}</td>
-                            <td>{{b.status}}</td>
-                            <td>{{b.subTask}}</td>
+                            <td>{{b[0].title}}</td>
+                            <td>{{b[0].description}}</td>
+                            <td>{{b[0].status}}</td>
+                            <td>{{b[0].subTask}}</td>
 
                             <td>
-                                <button [routerLink]="['/singleView',b._id]" class="btn btn-primary">View</button>
-                                &nbsp; <button [routerLink]="['/edit',b._id]" type="button"
+                                <button [routerLink]="['/singleView',b[0]._id]" class="btn btn-primary">View</button>
+                                &nbsp; <button [routerLink]="['/edit',b[0]._id]" type="button"
                                     class="btn btn-primary">Edit</button>
-                                &nbsp;<button type="button" (click)="deleteTask(b._id)"
+                                &nbsp;<button type="button" (click)="deleteTask(b[0]._id)"
                                     class="btn btn-primary">Delete</button>
                             </td>
 

@@ -12,29 +12,50 @@ export class UserComponent implements OnInit {
 
   username: any
   password: any
-  constructor(private http: TodoServiceService, private route: Router,private toastr: ToastrService ) { }
+  constructor(private http: TodoServiceService, private router: Router,private toastr: ToastrService ) { }
 
   ngOnInit(): void {
   }
 
 
   login() {
-    let a = {
-      email: this.username,
-      password: this.password
+    if (!this.username) {
+      this.toastr.warning('enter email')
+
+
+    } else if (!this.password) {
+
+      this.toastr.warning('enter password')
+
+
+    }else
+    {
+      let data = {
+        email: this.username,
+        password: this.password
+      }
+
+      this.http.login(data)
+        .subscribe((apiResponse) => {
+
+          if (apiResponse["status"] === 200) {
+
+             this.http.setUserInfoInLocalStorage(apiResponse["data"]["userDetails"])
+            
+             this.router.navigate(['/dashboard']);
+
+          } else {
+
+            this.toastr.error(apiResponse["message"])
+          
+
+          }
+
+        }, (err) => {
+          this.toastr.error('some error occured')
+
+        });
+
     }
-    this.http.login(a).subscribe(
-      data => {
-        if (data["status"] == 200) {
-          this.http.setUserInfoInLocalStorage(data["data"])
-          this.route.navigate(["/dashboard"])
-        }
-        else
-        {
-          this.toastr.error("Some error occured")
-
-        }
-      })
-
   }
 }

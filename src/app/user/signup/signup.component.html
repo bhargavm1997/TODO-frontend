@@ -47,7 +47,7 @@
 							<select *ngIf="this.countries" name="countryCode" [(ngModel)]="countryCodeSelected"> 
 								<option  *ngFor="let a of this.countries.countries" [value]="a.dial_code" >{{a.dial_code}}</option>
 								  </select>
-							<input type="number" name="mobile" [(ngModel)]="mobile" class="form-control input_user mobileInput" value="" placeholder="MobileNo">
+							<input type="text" name="mobile" [(ngModel)]="mobile" class="form-control input_user mobileInput" value="" placeholder="MobileNo" maxlength="10">
                         </div>
 
                         

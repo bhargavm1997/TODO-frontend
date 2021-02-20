@@ -24,15 +24,15 @@
                             <div class="col-md-6">
                                 <div class="todolist not-done">
                                  <h1>Edit Profile</h1>
-                                 <input type="text" [(ngModel)]="this.a.firstname" class="form-control add-todo" placeholder="FirstName">
+                                 <input type="text" [(ngModel)]="this.a.firstName" class="form-control add-todo" placeholder="FirstName">
                                  <br>
-                                 <input type="text" [(ngModel)]="this.a.lastname" class="form-control add-todo" placeholder="LastName">
+                                 <input type="text" [(ngModel)]="this.a.lastName" class="form-control add-todo" placeholder="LastName">
                                  <br>
                                  <div class="input-group mb-3">
                                  <select  *ngIf="this.countries" name="countryCode" class="form-control countryCode" [(ngModel)]="this.countryCodeSelected"> 
                                     <option *ngFor="let a of this.countries.countries" [value]="a.dial_code">{{a.dial_code}}</option>
                                       </select>
-                                 <input type="number" [(ngModel)]="this.a.mobile" class="form-control mobileInput" placeholder="Mobile.No">
+                                 <input type="number" [(ngModel)]="this.a.mobileNumber" class="form-control mobileInput" placeholder="Mobile.No">
                                 </div>
                                  <br>
                                  <input type="email" [(ngModel)]="this.a.email" class="form-control add-todo" placeholder="Email">

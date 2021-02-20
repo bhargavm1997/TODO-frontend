@@ -29,10 +29,10 @@ export class EditProfileComponent implements OnInit {
   editProfile() {
     let updatedProfile = {
       _id: this.a._id,
-      firstname: this.a.firstname,
-      lastname: this.a.lastname,
+      firstname: this.a.firstName,
+      lastname: this.a.lastName,
       email: this.a.email,
-      mobile: this.a.mobile,
+      mobile: this.a.mobileNumber,
       countryCode: this.a.countryCode
     }
     this.http.updateProfile(updatedProfile).subscribe(data => {

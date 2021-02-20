@@ -30,9 +30,9 @@ export class SignupComponent implements OnInit {
   signup()
   {
 let a={
-  firstname:this.firstname,
-  lastname:this.lastname,
-  mobile:this.mobile,
+  firstName:this.firstname,
+  lastName:this.lastname,
+  mobileNumber:this.mobile,
   email:this.email,
   password:this.password,
   countryCode:this.countryCodeSelected
@@ -50,6 +50,10 @@ this.http.signup(a).subscribe(
 
       }, 2000);
 
+    }
+    else
+    {
+      this.toaster.warning("Incorrect Email/Password")
     }
   })
   }

@@ -25,22 +25,32 @@ export class FriendsComponent implements OnInit {
 
   }
   sendInvite() {
-    let a = {
-      email: this.email,
-      invitedBy: this.userInfo._id
-    }
-    this.http.addFriend(a).subscribe(
+    this.http.userDetailsByEmail(this.email).subscribe(
       data => {
         if (data["status"] == 200) {
-          this.toaster.success("Invitation sent")
-          setTimeout(() => {
-    
-            
-            window.location.reload();
-    
-          }, 2000);
-    
+          let a = {
+            id:data["data"][0]._id,
+            email: this.email,
+            invitedBy: this.userInfo._id
+          }
+          this.http.addFriend(a).subscribe(
+            data => {
+              if (data["status"] == 200) {
+                this.toaster.success("Invitation sent")
+                setTimeout(() => {
+                  window.location.reload();         
+                }, 2000);
+          
+              }
+            })
+        }
+        else{
+            this.toaster.warning("Friend not found in system")
+            setTimeout(() => {
+              window.location.reload();         
+            }, 2000);
         }
       })
+  
   }
 }

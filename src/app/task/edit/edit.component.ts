@@ -11,11 +11,15 @@ export class EditComponent implements OnInit {
 
   b: any
   a: any
+  userInfo:any
 
-  constructor(private http: TodoServiceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private http: TodoServiceService, private route: ActivatedRoute, private router: Router) { 
+  }
   ngOnInit(): void {
 
     this.a = this.route.snapshot.paramMap.get("taskid")
+    this.userInfo = this.http.getUserInfoFromLocalstorage()
+
     this.http.singleView(this.a).subscribe(
       data => {
         if(data["status"]==200)
@@ -39,7 +43,9 @@ export class EditComponent implements OnInit {
       _id: this.b._id,
       title: this.b.title,
       description: this.b.description,
-      status:this.b.status
+      status:this.b.status,
+      updatedBy:this.userInfo._id
+
     }
 
     this.http.update(edit).subscribe(data => {
@@ -47,5 +53,8 @@ export class EditComponent implements OnInit {
         this.router.navigate(["/list"])
       }
     })
+
   }
+
+  
 }
